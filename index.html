@@ -127,6 +127,65 @@
     </div>
   </section>
 
+  <section id="comments" style="padding: 40px; background-color: #f7f7f7;">
+  <h2 style="text-align:center;">Comments</h2>
+
+  <div style="max-width: 500px; margin: auto;">
+    <textarea id="commentBox" placeholder="Write your comment here..." style="width:100%; height:100px; padding:10px;"></textarea>
+    <button onclick="postComment()" style="margin-top:10px; padding:10px 20px;">Post Comment</button>
+  </div>
+
+  <div id="commentsList" style="margin-top:30px; max-width: 500px; margin:auto;"></div>
+</section>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+<script>
+  // 🔑 Your Firebase Config Goes Here
+  const firebaseConfig = {
+  const firebaseConfig = {
+  apiKey: "AIzaSyAXY4T4Gatg3CxXaYYok1rkhzTmGleHYnQ",
+  authDomain: "benjamins-chats.firebaseapp.com",
+  projectId: "benjamins-chats",
+  storageBucket: "benjamins-chats.firebasestorage.app",
+  messagingSenderId: "606930371293",
+  appId: "1:606930371293:web:ff47242339286a84655134"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  function postComment() {
+    const comment = document.getElementById("commentBox").value;
+    if (comment.trim() === "") return;
+    const commentRef = db.ref("comments").push();
+    commentRef.set({
+      text: comment,
+      timestamp: Date.now()
+    });
+    document.getElementById("commentBox").value = "";
+  }
+
+  // Load comments
+  const commentsDiv = document.getElementById("commentsList");
+  db.ref("comments").on("value", snapshot => {
+    commentsDiv.innerHTML = "";
+    snapshot.forEach(child => {
+      const comment = child.val();
+      const p = document.createElement("p");
+      p.textContent = comment.text;
+      p.style.background = "#fff";
+      p.style.padding = "10px";
+      p.style.border = "1px solid #ccc";
+      p.style.borderRadius = "6px";
+      p.style.marginBottom = "10px";
+      commentsDiv.appendChild(p);
+    });
+  });
+</script>
+
 
 
   </div>
