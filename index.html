@@ -168,36 +168,53 @@
   appId: "1:606930371293:web:ff47242339286a84655134"
   };
 
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
   function postComment() {
-    const comment = document.getElementById("commentBox").value;
-    if (comment.trim() === "") return;
+    const name = document.getElementById("nameBox").value.trim();
+    const comment = document.getElementById("commentBox").value.trim();
+    if (name === "" || comment === "") {
+      alert("Please enter both name and comment.");
+      return;
+    }
+
     const commentRef = db.ref("comments").push();
     commentRef.set({
+      name: name,
       text: comment,
       timestamp: Date.now()
     });
+
+    document.getElementById("nameBox").value = "";
     document.getElementById("commentBox").value = "";
   }
 
-  // Load comments
+  // Display comments live with names
   const commentsDiv = document.getElementById("commentsList");
   db.ref("comments").on("value", snapshot => {
     commentsDiv.innerHTML = "";
     snapshot.forEach(child => {
       const comment = child.val();
       const p = document.createElement("p");
-      p.textContent = comment.text;
       p.style.background = "#fff";
       p.style.padding = "10px";
       p.style.border = "1px solid #ccc";
       p.style.borderRadius = "6px";
       p.style.marginBottom = "10px";
+
+      p.innerHTML = `<strong>${escapeHtml(comment.name)}</strong>: ${escapeHtml(comment.text)}`;
       commentsDiv.appendChild(p);
     });
   });
+
+  // Basic escape function to prevent HTML injection
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+</script>
 </script>
 
 
