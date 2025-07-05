@@ -196,65 +196,67 @@
     <p>&copy; 2025 Benjamin Selvester. All rights reserved.</p>
   </footer>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAXY4T4Gatg3CxXaYYok1rkhzTmGleHYnQ",
-      authDomain: "benjamins-chats.firebaseapp.com",
-      databaseURL: "https://benjamins-chats-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "benjamins-chats",
-      storageBucket: "benjamins-chats.appspot.com",
-      messagingSenderId: "606930371293",
-      appId: "1:606930371293:web:ff47242339286a84655134"
-    };
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAXY4T4Gatg3CxXaYYok1rkhzTmGleHYnQ",
+    authDomain: "benjamins-chats.firebaseapp.com",
+    databaseURL: "https://benjamins-chats-default-rtdb.europe-west1.firebasedatabase.app", 
+    projectId: "benjamins-chats",
+    storageBucket: "benjamins-chats.appspot.com",
+    messagingSenderId: "606930371293",
+    appId: "1:606930371293:web:ff47242339286a84655134"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-    function postComment() {
-      const name = document.getElementById("nameBox").value.trim();
-      const comment = document.getElementById("commentBox").value.trim();
-      if (name === "" || comment === "") {
-        alert("Please enter both name and comment.");
-        return;
-      }
-
-      const commentRef = db.ref("comments").push();
-      commentRef.set({
-        name: name,
-        text: comment,
-        timestamp: Date.now()
-      });
-
-      document.getElementById("nameBox").value = "";
-      document.getElementById("commentBox").value = "";
+  function postComment() {
+    const name = document.getElementById("nameBox").value.trim();
+    const comment = document.getElementById("commentBox").value.trim();
+    if (name === "" || comment === "") {
+      alert("Please enter both name and comment.");
+      return;
     }
 
-    const commentsDiv = document.getElementById("commentsList");
-    db.ref("comments").on("value", snapshot => {
-      commentsDiv.innerHTML = "";
-      snapshot.forEach(child => {
-        const comment = child.val();
-        const p = document.createElement("p");
-        p.style.background = "#fff";
-        p.style.padding = "10px";
-        p.style.border = "1px solid #ccc";
-        p.style.borderRadius = "6px";
-        p.style.marginBottom = "10px";
-
-        p.innerHTML = `<strong>${escapeHtml(comment.name)}</strong>: ${escapeHtml(comment.text)}`;
-        commentsDiv.appendChild(p);
-      });
+    const commentRef = db.ref("comments").push();
+    commentRef.set({
+      name: name,
+      text: comment,
+      timestamp: Date.now()
     });
 
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
+    document.getElementById("nameBox").value = "";
+    document.getElementById("commentBox").value = "";
+  }
+
+  const commentsDiv = document.getElementById("commentsList");
+  db.ref("comments").on("value", snapshot => {
+    commentsDiv.innerHTML = "";
+    snapshot.forEach(child => {
+      const comment = child.val();
+      const p = document.createElement("p");
+      p.style.background = "#fff";
+      p.style.padding = "10px";
+      p.style.border = "1px solid #ccc";
+      p.style.borderRadius = "6px";
+      p.style.marginBottom = "10px";
+
+      p.innerHTML = `<strong>${escapeHtml(comment.name)}</strong>: ${escapeHtml(comment.text)}`;
+      commentsDiv.appendChild(p);
+    });
+  });
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+</script>
+
 
     // Dark mode toggle
     const toggleBtn = document.getElementById("dark-mode-toggle");
