@@ -9,133 +9,115 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f4f4f4;
-      color: #333;
+      background-color: white;
+      color: black;
+      transition: 0.3s ease;
     }
-    <button id="dark-mode-toggle">Toggle Dark Mode </button>
-    header {
-      background: #1e2242;
-      color: #fcfcfc;
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
     }
+
     header {
       background: #1e2242;
       color: #fff;
       padding: 40px 20px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
       font-size: 2.5em;
     }
+
     header p {
       font-style: italic;
       font-size: 1.2em;
       margin-top: 10px;
     }
+
     nav {
       background: #333;
       padding: 10px;
       text-align: center;
     }
+
     nav a {
       color: #fcfcfc;
-
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
     }
+
     h2 {
       color: #222;
-=======
-      color: #fcfcfc;
-
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
     }
+
     .projects img {
       max-width: 100%;
       height: auto;
       margin-top: 10px;
     }
+
     footer {
       background: #222;
-<<<<<<< HEAD
-      color: #fff;
-=======
       color: #fcfcfc;
-
       text-align: center;
       padding: 20px;
     }
+
     .social a {
-<<<<<<< HEAD
-      color: #fff;
-=======
       color: #fcfcfc;
->>>>>>> 9554a372b205ed16809a5d5bc11d337947fde133
       margin: 0 10px;
       text-decoration: none;
       font-size: 1.1em;
     }
+
     .social a:hover {
       text-decoration: underline;
     }
-<style>
-  /* existing styles... */
 
-  #meme-header {
-    background: yellow;
-    text-align: center;
-    padding: 20px;
-  }
-</style>
+    #meme-header {
+      background: yellow;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #dark-mode-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #1e2242;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  background-color: white;
-  color: black;
-  transition: 0.3s ease;
-}
-<body></body>.dark-mode {
-  background-color: #121212;
-  color: #f1f1f1;
-}
 
-  <script>
-  const toggleBtn = document.getElementById("dark-mode-toggle");
-
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    // Optional: Save preference in local storage
-    if (document.body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
-  });
-
-  // Load saved preference on page load
-  window.addEventListener("load", () => {
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-    }
-  });
-</script>
-
+  <button id="dark-mode-toggle">Toggle Dark Mode</button>
 
   <header>
     <h1>Benjamin Selvester</h1>
     <p>photography n stuff</p>
-
   </header>
+
   <nav>
     <a href="#about">About Me</a>
     <a href="#projects">Projects</a>
@@ -144,28 +126,20 @@
     <a href="#comments">Comments</a>
     <a href="#videos">Videos</a>
   </nav>
-  
+
   <section id="meme-header">
-  <h2>Who gave bro a website 😭🙏</h2>
-</section>
-  
+    <h2>Who gave bro a website 😭🙏</h2>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
-  
-    <p>I’m Benjamin. I just made this as a joke and to show off photos (mostly to myself) and other things. I am a 6'1 humble feminist. Fuelled by monster ultra white and funny stuff. Also blue is a pretty peak colour. Also monster ultra white is good. xoxo - b
-    </p>
-    
+    <p>I’m Benjamin. I just made this as a joke and to show off photos (mostly to myself) and other things. I am a 6'1 humble feminist. Fuelled by monster ultra white and funny stuff. Also blue is a pretty peak colour. Also monster ultra white is good. xoxo - b</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-
-
-
     <p>Here are a few shots, projects amongst other things I've been doing. I'll add more soooooooon, there's a few up now.</p>
-<!-- index.html -->
-<a href="polaroids.html">Polaroids</a>
-
+    <a href="polaroids.html">Polaroids</a>
     <div class="projects">
       <img src="images/photo1.jpg" alt="Femboy" width="300">
       <img src="images/photo2.jpg" alt="London Eye" width="300">
@@ -176,106 +150,33 @@
       <img src="images/photo7.jpg" alt="My photo" width="300">
       <img src="images/photo8.jpg" alt="My photo" width="300">
     </div>
-
-    <section id="videos">
-    <!-- Videos Section -->
-<h2 style="font-weight: bold; margin-top: 40px; margin-bottom: 10px;">Videos</h2>
-<hr style="margin-bottom: 15px;">
-
-<!-- Example YouTube Embed -->
-<div style="margin-top: 20px; margin-bottom: 40px;">
-  <iframe width="100%" height="315" 
-          src="https://www.youtube.com/embed/XHdE5KLljyY" 
-          title="YouTube video player" frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-  </iframe>
-</div>
-
   </section>
-  <section id="Comments">
-<section id="comments" style="padding: 40px; background-color: #f7f7f7;">
-  <h2 style="text-align:center;">Comments</h2>
 
-  <div style="max-width: 500px; margin: auto;">
-    <input id="nameBox" placeholder="Your name" style="width:100%; padding:10px; margin-bottom:10px;" />
-    <textarea id="commentBox" placeholder="Write your comment here..." style="width:100%; height:100px; padding:10px;"></textarea>
-    <button onclick="postComment()" style="margin-top:10px; padding:10px 20px;">Post Comment</button>
-  </div>
+  <section id="videos">
+    <h2 style="font-weight: bold; margin-top: 40px; margin-bottom: 10px;">Videos</h2>
+    <hr style="margin-bottom: 15px;">
+    <div style="margin-top: 20px; margin-bottom: 40px;">
+      <iframe width="100%" height="315"
+              src="https://www.youtube.com/embed/XHdE5KLljyY"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+      </iframe>
+    </div>
+  </section>
 
-  <div id="commentsList" style="margin-top:30px; max-width: 500px; margin:auto;"></div>
-</section>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAXY4T4Gatg3CxXaYYok1rkhzTmGleHYnQ",
-    authDomain: "benjamins-chats.firebaseapp.com",
-    databaseURL: "https://benjamins-chats-default-rtdb.europe-west1.firebasedatabase.app", 
-    projectId: "benjamins-chats",
-    storageBucket: "benjamins-chats.appspot.com",
-    messagingSenderId: "606930371293",
-    appId: "1:606930371293:web:ff47242339286a84655134"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  function postComment() {
-    const name = document.getElementById("nameBox").value.trim();
-    const comment = document.getElementById("commentBox").value.trim();
-    if (name === "" || comment === "") {
-      alert("Please enter both name and comment.");
-      return;
-    }
-
-    const commentRef = db.ref("comments").push();
-    commentRef.set({
-      name: name,
-      text: comment,
-      timestamp: Date.now()
-    });
-
-    document.getElementById("nameBox").value = "";
-    document.getElementById("commentBox").value = "";
-  }
-
-  const commentsDiv = document.getElementById("commentsList");
-  db.ref("comments").on("value", snapshot => {
-    commentsDiv.innerHTML = "";
-    snapshot.forEach(child => {
-      const comment = child.val();
-      const p = document.createElement("p");
-      p.style.background = "#fff";
-      p.style.padding = "10px";
-      p.style.border = "1px solid #ccc";
-      p.style.borderRadius = "6px";
-      p.style.marginBottom = "10px";
-
-      p.innerHTML = `<strong>${escapeHtml(comment.name)}</strong>: ${escapeHtml(comment.text)}`;
-      commentsDiv.appendChild(p);
-    });
-  });
-
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-</script>
-
-
-
-  </div>
-</section>
-
+  <section id="comments" style="padding: 40px; background-color: #f7f7f7;">
+    <h2 style="text-align:center;">Comments</h2>
+    <div style="max-width: 500px; margin: auto;">
+      <input id="nameBox" placeholder="Your name" style="width:100%; padding:10px; margin-bottom:10px;" />
+      <textarea id="commentBox" placeholder="Write your comment here..." style="width:100%; height:100px; padding:10px;"></textarea>
+      <button onclick="postComment()" style="margin-top:10px; padding:10px 20px;">Post Comment</button>
+    </div>
+    <div id="commentsList" style="margin-top:30px; max-width: 500px; margin:auto;"></div>
+  </section>
 
   <section id="contact">
     <h2>Contact</h2>
-
     <p>email me anything, i love emails. and cats. cat emails would be flames.</p>
     <p><strong>Email:</strong> <a href="mailto:benjaminselvester@gmail.com">benjaminselvester@gmail.com</a></p>
   </section>
@@ -295,5 +196,78 @@
     <p>&copy; 2025 Benjamin Selvester. All rights reserved.</p>
   </footer>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXY4T4Gatg3CxXaYYok1rkhzTmGleHYnQ",
+      authDomain: "benjamins-chats.firebaseapp.com",
+      databaseURL: "https://benjamins-chats-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "benjamins-chats",
+      storageBucket: "benjamins-chats.appspot.com",
+      messagingSenderId: "606930371293",
+      appId: "1:606930371293:web:ff47242339286a84655134"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    function postComment() {
+      const name = document.getElementById("nameBox").value.trim();
+      const comment = document.getElementById("commentBox").value.trim();
+      if (name === "" || comment === "") {
+        alert("Please enter both name and comment.");
+        return;
+      }
+
+      const commentRef = db.ref("comments").push();
+      commentRef.set({
+        name: name,
+        text: comment,
+        timestamp: Date.now()
+      });
+
+      document.getElementById("nameBox").value = "";
+      document.getElementById("commentBox").value = "";
+    }
+
+    const commentsDiv = document.getElementById("commentsList");
+    db.ref("comments").on("value", snapshot => {
+      commentsDiv.innerHTML = "";
+      snapshot.forEach(child => {
+        const comment = child.val();
+        const p = document.createElement("p");
+        p.style.background = "#fff";
+        p.style.padding = "10px";
+        p.style.border = "1px solid #ccc";
+        p.style.borderRadius = "6px";
+        p.style.marginBottom = "10px";
+
+        p.innerHTML = `<strong>${escapeHtml(comment.name)}</strong>: ${escapeHtml(comment.text)}`;
+        commentsDiv.appendChild(p);
+      });
+    });
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Dark mode toggle
+    const toggleBtn = document.getElementById("dark-mode-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
 </body>
 </html>
